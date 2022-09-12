@@ -6,11 +6,11 @@ import AddRecordSelector from "./AddRecordSelector";
 function AddRecordForm() {
   const { isExpense, switchType } = useContext(AddRecordContext);
 
-  const rowClasses : string = "flex flex-row justify-between w-full pt-4"
+  const rowClasses : string = "flex flex-row justify-between w-full mt-5"
   const inputFieldClasses : string = "w-3/5 border-solid border-2 border-black rounded-md text-right"
 
   return (
-    <form action="" className="flex flex-col text-xl w-5/12 items-end">
+    <form action="" className="flex flex-col text-xl w-5/12 items-end mt-8">
       <div className={rowClasses}>
         <label htmlFor="amount">Ammount:</label>
         <input

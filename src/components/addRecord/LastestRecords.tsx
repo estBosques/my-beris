@@ -52,17 +52,17 @@ function LastedRecords() {
   });
 
   return (
-    <table className="border-collapse table-auto w-9/12 rounded-full mt-10 text-zinc-200">
-      <thead className="bg-zinc-500 rounded-full">
+    <table className="border-collapse table-fixed w-8/12 mt-10">
+      <thead className="bg-zinc-600 text-center text-zinc-200">
         <tr>
           <th className="border-l-4 border-neutral-700">Date</th>
-          <th>Type</th>
           <th>Ammount</th>
           <th>Category</th>
           <th>Tags</th>
+          <th>Type</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody className="text-center">
         { tableRows }
       </tbody>
     </table>
