@@ -1,14 +1,9 @@
 import { useEffect, useRef, useState } from "react";
-import { slideDown, slideUp } from "./Animations";
+import { slideDown, slideUp } from "../../utils/Animations";
 import RecordInterface from "../../interfaces/Record";
 import "./LatestRecordsRow.scss";
+import { decorators } from "../../utils/LatestRecordRowDecorator";
 
-interface decoratorProperty {
-  [key: string]: string;
-}
-interface decorator {
-  [key: string]: decoratorProperty;
-}
 function LatestRecordsRow({
   date,
   type,
@@ -19,21 +14,6 @@ function LatestRecordsRow({
 }: RecordInterface) {
   let [expanded, setExpanded] = useState(false);
   let expanderBody = useRef<HTMLDivElement>(null);
-
-  const decorators: decorator = {
-    income: {
-      borderColor: "border-green-600",
-      rowBg: "bg-green-100",
-      pillBg: "bg-green-600",
-      pillText: "text-black",
-    },
-    expense: {
-      borderColor: "border-red-600",
-      rowBg: "bg-red-100",
-      pillBg: "bg-red-600",
-      pillText: "text-white",
-    },
-  };
 
   const didMount = useRef(false);
 
@@ -66,7 +46,7 @@ function LatestRecordsRow({
     <>
       <tr
         key="main"
-        className={`odd:bg-zinc-200 even:bg-zinc-100} h-9`}
+        className={`odd:bg-zinc-200 even:bg-zinc-100} h-9 cursor-pointer`}
         onClick={toggleExpander}
       >
         <td className={`border-l-4 ${borderColor}`}>{date}</td>
@@ -76,7 +56,7 @@ function LatestRecordsRow({
         <td>
           <div className="flex w-100 justify-center">
             <div
-              className={`rounded-full ${pillBg} ${pillText} w-fit px-2 mx-0 font-medium uppercase`}
+              className={`rounded-full ${pillBg} ${pillText} w-fit px-2 mx-0 font-medium uppercase text-sm`}
             >
               {type}
             </div>

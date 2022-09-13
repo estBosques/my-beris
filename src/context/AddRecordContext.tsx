@@ -1,7 +1,7 @@
 import { createContext, useState } from "react";
 
 interface AddRecordContextInterface {
-  detailedForm: boolean;
+  isDetailed: boolean;
   toggleFormType: () => void;
   isExpense: boolean;
   switchType: () => void;
@@ -12,11 +12,11 @@ export const AddRecordContext = createContext<AddRecordContextInterface>(
 );
 
 export function AddRecordContextProvider(props: any) {
-  const [detailedForm, setSelection] = useState(true);
+  const [isDetailed, switchForm] = useState(true);
   const [isExpense, setIsExpense] = useState(true);
 
   let toggleFormType = () => {
-    setSelection(!detailedForm);
+    switchForm(!isDetailed);
   };
 
   let switchType = () => {
@@ -26,7 +26,7 @@ export function AddRecordContextProvider(props: any) {
   return (
     <AddRecordContext.Provider
       value={{
-        detailedForm,
+        isDetailed,
         toggleFormType,
         isExpense,
         switchType,

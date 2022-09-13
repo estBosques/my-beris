@@ -6,7 +6,8 @@ import {faBahtSign} from '@fortawesome/free-solid-svg-icons';
 
 function Navbar() {
   return (
-    <nav className="flex flex-col items-center w-60 h-full overflow-hidden text-stone-300 bg-green-800 ">
+    <div className="w-2/12">
+      <nav className="flex flex-col items-center w-2/12 h-screen overflow-hidden text-stone-300 bg-green-800 fixed">
       <a className="flex justify-center w-full px-auto mt-3" href="#">
         <FontAwesomeIcon icon={faBahtSign} className="w-8 h-8"></FontAwesomeIcon>
       </a>
@@ -21,6 +22,7 @@ function Navbar() {
       </div>
       <NavbarAccount></NavbarAccount>
     </nav>
+    </div>
   );
 }
 

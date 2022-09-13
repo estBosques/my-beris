@@ -40,8 +40,8 @@ function LastedRecords() {
       type: "expense",
       amount: 100,
       category: "food",
-      tags: ["tag1", "tag2"],
-      notes: "notes",
+      tags: ["tag1", "tag2"], 
+      notes: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod saepe rem modi laboriosam repellendus velit iure similique eveniet placeat dicta! Et exercitationem veniam repudiandae dignissimos sunt debitis nihil error est? Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo eligendi doloribus ratione molestiae corporis possimus, vel exercitationem hic optio nam soluta at quidem iste sunt dolorem in nesciunt alias molestias?",
     },
   ];
 

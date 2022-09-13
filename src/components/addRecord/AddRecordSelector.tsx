@@ -5,13 +5,17 @@ interface SelectorInterface {
   toggleValue: () => void;
 }
 
-function AddRecordSelector({lValue, rValue, actualValue, toggleValue}: SelectorInterface) {
-
+function AddRecordSelector({
+  lValue,
+  rValue,
+  actualValue,
+  toggleValue,
+}: SelectorInterface) {
   return (
     <div className="text-base">
       <button
         className={
-          "rounded-l-full border-solid border-2 border-black py-2 px-9 " +
+          "rounded-l-full border-solid border border-black py-1 w-20 " +
           (actualValue ? "bg-green-600" : "")
         }
         onClick={toggleValue}
@@ -20,10 +24,10 @@ function AddRecordSelector({lValue, rValue, actualValue, toggleValue}: SelectorI
       </button>
       <button
         className={
-          "rounded-r-full border-solid border-y-2 border-r-2 border-black py-2 px-11 " +
+          "rounded-r-full border-solid border-y border-r border-black py-1 w-20 " +
           (!actualValue ? "bg-green-600" : "")
         }
-        onClick={ toggleValue}
+        onClick={toggleValue}
       >
         {rValue}
       </button>
