@@ -3,7 +3,7 @@ import Filter from "../components/history/Filter";
 export default function History() {
   return (
     <div>
-      <h1>History</h1>
+      <h1>Hioojstory</h1>
       <Filter></Filter>
     </div>
   );

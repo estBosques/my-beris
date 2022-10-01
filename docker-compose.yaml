@@ -1,0 +1,37 @@
+version: "3.8"
+
+services:
+  frontend:
+    container_name: frontend
+    build: ./frontend
+    ports:
+      - 8000:8000
+    volumes:
+      - ./frontend/:/usr/src/app
+      - /usr/src/app/node_modules
+    # tty: true
+    # stdin_open: true
+
+  # db:
+  #   image: postgres
+  #   volumes:
+  #     - ./data/db:/var/lib/postgresql/data
+  #   environment:
+  #     - POSTGRES_DB=postgres
+  #     - POSTGRES_USER=postgres
+  #     - POSTGRES_PASSWORD=postgres
+
+  backend:
+    build: ./backend
+    container_name: backend
+    command: python backendProject/manage.py runserver 0.0.0.0:7000
+    volumes:
+      - ./backend/:/usr/src/app/
+    ports:
+      - "7000:7000"
+    environment:
+      - POSTGRES_NAME=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+  #   # depends_on:
+  #   #   - db
