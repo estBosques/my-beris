@@ -2,8 +2,8 @@ version: "3.8"
 
 services:
   frontend:
-    container_name: frontend
     build: ./frontend
+    container_name: frontend
     ports:
       - 8000:8000
     volumes:
@@ -24,14 +24,10 @@ services:
   backend:
     build: ./backend
     container_name: backend
-    command: python backendProject/manage.py runserver 0.0.0.0:7000
+    command: ./runserver.sh
     volumes:
-      - ./backend/:/usr/src/app/
+      - ./backend/:/usr/src/app
     ports:
       - "7000:7000"
-    environment:
-      - POSTGRES_NAME=postgres
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
-  #   # depends_on:
-  #   #   - db
+    env_file:
+      - ./backend/.env
