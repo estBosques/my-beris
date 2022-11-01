@@ -1,5 +1,8 @@
 import LatestRecordsRow from "./LatestRecordsRow";
 import RecordInterface from "../../interfaces/Record";
+import { useEffect } from "react";
+import axios from "axios";
+import { API_URL } from "../../constants";
 
 function LastedRecords() {
   const testData = [
@@ -40,16 +43,30 @@ function LastedRecords() {
       type: "expense",
       amount: 100,
       category: "food",
-      tags: ["tag1", "tag2"], 
-      notes: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod saepe rem modi laboriosam repellendus velit iure similique eveniet placeat dicta! Et exercitationem veniam repudiandae dignissimos sunt debitis nihil error est? Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo eligendi doloribus ratione molestiae corporis possimus, vel exercitationem hic optio nam soluta at quidem iste sunt dolorem in nesciunt alias molestias?",
+      tags: ["tag1", "tag2"],
+      notes:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod saepe rem modi laboriosam repellendus velit iure similique eveniet placeat dicta! Et exercitationem veniam repudiandae dignissimos sunt debitis nihil error est? Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo eligendi doloribus ratione molestiae corporis possimus, vel exercitationem hic optio nam soluta at quidem iste sunt dolorem in nesciunt alias molestias?",
     },
   ];
 
   const tableRows = testData.map((record: RecordInterface, index) => {
-    return (
-      <LatestRecordsRow key={index} {...record}></LatestRecordsRow>
-    );
+    return <LatestRecordsRow key={index} {...record}></LatestRecordsRow>;
   });
+
+  let refreshTable = () => {
+    axios
+      .get(`${API_URL}/expenses/`)
+      .then((res: any) => {
+        console.log(res.data);
+      })
+      .catch((err: any) => {
+        console.error(`Unable to fetch data: ${err}`);
+      });
+  };
+
+  useEffect(() => {
+    refreshTable();
+  }, []);
 
   return (
     <table className="border-collapse table-fixed w-8/12 mt-10">
@@ -62,9 +79,7 @@ function LastedRecords() {
           <th>Type</th>
         </tr>
       </thead>
-      <tbody className="text-center">
-        { tableRows }
-      </tbody>
+      <tbody className="text-center">{tableRows}</tbody>
     </table>
   );
 }

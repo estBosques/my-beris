@@ -2,6 +2,7 @@
   "name": "my-beris",
   "private": true,
   "version": "0.0.0",
+  "proxy": "http://localhost:7000/api",
   "type": "module",
   "scripts": {
     "dev": "vite --host 0.0.0.0",
@@ -15,6 +16,7 @@
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@types/d3-ease": "^3.0.0",
     "@types/d3-interpolate": "^3.0.1",
+    "axios": "^1.1.3",
     "d3-ease": "^3.0.1",
     "d3-interpolate": "^3.0.1",
     "react": "^18.2.0",
@@ -23,8 +25,8 @@
   },
   "devDependencies": {
     "@types/node": "^18.7.16",
-    "@types/react": "^18.0.17",
-    "@types/react-dom": "^18.0.6",
+    "@types/react": "^18.0.24",
+    "@types/react-dom": "^18.0.8",
     "@vitejs/plugin-react": "^2.0.1",
     "autoprefixer": "^10.4.8",
     "postcss": "^8.4.16",

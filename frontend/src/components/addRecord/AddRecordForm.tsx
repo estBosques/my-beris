@@ -11,6 +11,11 @@ function AddRecordForm() {
   const inputFieldClasses: string =
     "w-3/5 border-solid border border-black rounded-lg text-right";
 
+  let handleSubmit = (e: any) => {
+    e.preventDefault();
+    alert("Submit");
+  };
+
   return (
     <form action="" className="flex flex-col w-full text-lg items-end">
       <div className="w-full px-8 pt-4 pb-8">
@@ -62,6 +67,7 @@ function AddRecordForm() {
       <button
         type="submit"
         className="w-full bg-green-600 h-11 rounded-b-xl hover:bg-green-500 active:bg-green-700 active:text-base"
+        onClick={e=> handleSubmit(e)}
       >
         Add record
       </button>

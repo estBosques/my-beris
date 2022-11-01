@@ -24,7 +24,7 @@ class Expense(models.Model):
 
 class ExpenseDetail(models.Model):
     expenseId = models.ForeignKey(Expense, on_delete=models.CASCADE)
-    date = models.DateField()
+    date = models.DateField() #TODO: move this to expense model (default to current day)
     notes = models.CharField(max_length=200)
     def __str__(self):
         return "%s %s %s" % (self.expenseId, self.date, self.notes)	

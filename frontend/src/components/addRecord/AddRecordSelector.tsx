@@ -11,6 +11,11 @@ function AddRecordSelector({
   actualValue,
   toggleValue,
 }: SelectorInterface) {
+  let triggerFunction = (e: any) => {
+    e.preventDefault();
+    toggleValue();
+  };
+
   return (
     <div className="text-base">
       <button
@@ -18,7 +23,7 @@ function AddRecordSelector({
           "rounded-l-full border-solid border border-black py-1 w-20 " +
           (actualValue ? "bg-green-600" : "")
         }
-        onClick={toggleValue}
+        onClick={e => triggerFunction(e)}
       >
         {lValue}
       </button>
@@ -27,7 +32,7 @@ function AddRecordSelector({
           "rounded-r-full border-solid border-y border-r border-black py-1 w-20 " +
           (!actualValue ? "bg-green-600" : "")
         }
-        onClick={toggleValue}
+        onClick={e => triggerFunction(e)}
       >
         {rValue}
       </button>
